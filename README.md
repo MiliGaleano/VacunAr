@@ -6,17 +6,26 @@ Web application to save your vaccination records, download them in PDF, add appo
 
 Technologies used:
 [React.js](https://es.reactjs.org/)
+
 [React Bootstrap](https://react-bootstrap.github.io/)
+
 [Firebase (Authentication - Firestore Database - Storage)](https://firebase.google.com/)
+
 [Here Maps](https://www.here.com/)
+
 [Jornalia API](https://jornalia.net/)
+
 [jsPDF](https://github.com/MrRio/jsPDF)
+
 [Google Calendar API](https://developers.google.com/calendar)
+
 [Buenos Aires Data](https://data.buenosaires.gob.ar/)
 
 ## Demo!
 
 [VacunAr](https://miligaleano.github.io/VacunAr)
+
+
 
 
 # Getting Started with Create React App
