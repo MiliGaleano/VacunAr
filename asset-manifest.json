@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/VacunAr/static/css/main.e697076c.chunk.css",
+    "main.js": "/VacunAr/static/js/main.fd857cc8.chunk.js",
+    "main.js.map": "/VacunAr/static/js/main.fd857cc8.chunk.js.map",
+    "runtime-main.js": "/VacunAr/static/js/runtime-main.294e2bbd.js",
+    "runtime-main.js.map": "/VacunAr/static/js/runtime-main.294e2bbd.js.map",
+    "static/js/2.2c1c986e.chunk.js": "/VacunAr/static/js/2.2c1c986e.chunk.js",
+    "static/js/2.2c1c986e.chunk.js.map": "/VacunAr/static/js/2.2c1c986e.chunk.js.map",
+    "static/css/3.4c97ca4f.chunk.css": "/VacunAr/static/css/3.4c97ca4f.chunk.css",
+    "static/js/3.ffe8f5ca.chunk.js": "/VacunAr/static/js/3.ffe8f5ca.chunk.js",
+    "static/js/3.ffe8f5ca.chunk.js.map": "/VacunAr/static/js/3.ffe8f5ca.chunk.js.map",
+    "static/js/4.1da835b3.chunk.js": "/VacunAr/static/js/4.1da835b3.chunk.js",
+    "static/js/4.1da835b3.chunk.js.map": "/VacunAr/static/js/4.1da835b3.chunk.js.map",
+    "static/js/5.9e41e693.chunk.js": "/VacunAr/static/js/5.9e41e693.chunk.js",
+    "static/js/5.9e41e693.chunk.js.map": "/VacunAr/static/js/5.9e41e693.chunk.js.map",
+    "index.html": "/VacunAr/index.html",
+    "static/css/3.4c97ca4f.chunk.css.map": "/VacunAr/static/css/3.4c97ca4f.chunk.css.map",
+    "static/css/main.e697076c.chunk.css.map": "/VacunAr/static/css/main.e697076c.chunk.css.map",
+    "static/js/2.2c1c986e.chunk.js.LICENSE.txt": "/VacunAr/static/js/2.2c1c986e.chunk.js.LICENSE.txt",
+    "static/js/3.ffe8f5ca.chunk.js.LICENSE.txt": "/VacunAr/static/js/3.ffe8f5ca.chunk.js.LICENSE.txt",
+    "static/js/4.1da835b3.chunk.js.LICENSE.txt": "/VacunAr/static/js/4.1da835b3.chunk.js.LICENSE.txt",
+    "static/js/5.9e41e693.chunk.js.LICENSE.txt": "/VacunAr/static/js/5.9e41e693.chunk.js.LICENSE.txt",
+    "static/media/googleCalendar.ff24bee8.png": "/VacunAr/static/media/googleCalendar.ff24bee8.png",
+    "static/media/header.077d023e.png": "/VacunAr/static/media/header.077d023e.png",
+    "static/media/noticia.ef5e82a8.jpg": "/VacunAr/static/media/noticia.ef5e82a8.jpg",
+    "static/media/vacunar2.c1643ebc.png": "/VacunAr/static/media/vacunar2.c1643ebc.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.294e2bbd.js",
+    "static/css/3.4c97ca4f.chunk.css",
+    "static/js/3.ffe8f5ca.chunk.js",
+    "static/css/main.e697076c.chunk.css",
+    "static/js/main.fd857cc8.chunk.js"
+  ]
+}
