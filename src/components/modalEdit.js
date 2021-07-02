@@ -10,8 +10,9 @@ import "firebase/storage"
 import "firebase/firestore"
 import {Auth} from '../context/authContext'
 import {UserData} from '../context/userContext'
+import { useHistory } from 'react-router-dom'
 
-const ModalEdit = ({handleClose, showModal, newUser, unombre, handleChangesMade}) => {
+const ModalEdit = ({handleClose, showModal, newUser, unombre, ufecha, handleChangesMade}) => {
 
     const [nombre, setNombre] = useState()
     const [fecha, setFecha] = useState()
@@ -21,6 +22,7 @@ const ModalEdit = ({handleClose, showModal, newUser, unombre, handleChangesMade}
         !newUser && setNombre(unombre)
     },[])
 
+    const history = useHistory()
     const storage = firebase.storage()
     const db = firebase.firestore()
     const { user } = useContext(Auth)
@@ -45,44 +47,45 @@ const ModalEdit = ({handleClose, showModal, newUser, unombre, handleChangesMade}
         e.preventDefault()
 
     if (newUser) {
-        db.collection("users").doc(usermail).collection('datauser').where('__name__',"==",nombre).get()
-        .then((query) => {  
-            const vacUser = query.docs[0]
-            if (vacUser === undefined) {
-                if(imageAsFile === '' ) {
-                    console.error(`not an image, the image file is a ${typeof(imageAsFile)}`)
-                }
-                const uploadTask = storage.ref(`/images/${usermail+nombre}`).put(imageAsFile)
+        if (!fecha || !nombre || !imageAsFile) {
+            alert('Complete todos los campos')
+        } else {
+            db.collection("users").doc(usermail).collection('datauser').where('__name__',"==",nombre).get()
+            .then((query) => {  
+                const vacUser = query.docs[0]
+                if (vacUser === undefined) {
+                    if(imageAsFile !== '' ) {
+                        const uploadTask = storage.ref(`/images/${usermail+nombre}`).put(imageAsFile)
 
-                db.collection("users").doc(usermail).collection('datauser').doc(nombre).set({
-                    nombre: nombre,
-                    fecha: fecha,
-                    url: usermail+nombre
-                })
-                .then(() => {
-                    console.log('changes saved');
-                    handleUpdateUser()
-                    handleChangesMade()
-                })
-                .catch((error) => {
-                    console.error("Error adding document: ", error);
-                })
-            } else {alert('Ya existe un usuario con ese nombre')}
-        })
+                        db.collection("users").doc(usermail).collection('datauser').doc(nombre).set({
+                            nombre: nombre,
+                            fecha: fecha,
+                            url: usermail+nombre
+                        })
+                        .then(() => {
+                            console.log('changes saved');
+                            handleUpdateUser()
+                            handleChangesMade()
+                            history.push('/misVacunas')
+                        })
+                        .catch((error) => {
+                            console.error("Error adding document: ", error);
+                        })
+                    } else {alert('Hubo un problema al cargar la imágen')}
+                } else {alert('Ya existe un usuario con ese nombre')}
+            })
+        }
     } else {
-            if(imageAsFile === '' ) {
-                console.error(`not an image, the image file is a ${typeof(imageAsFile)}`)
+            if(imageAsFile !== '' ) {
+                const uploadTask = storage.ref(`/images/${usermail+nombre}`).put(imageAsFile)
             }
-            const uploadTask = storage.ref(`/images/${usermail+nombre}`).put(imageAsFile)
-
             db.collection("users").doc(usermail).collection('datauser').doc(nombre).set({
                 nombre: nombre,
-                fecha: fecha,
+                fecha: fecha ? fecha : ufecha,
                 url: usermail+nombre
             })
             .then(() => {
                 console.log('changes saved');
-                handleUpdateUser()
                 handleChangesMade()
             })
             .catch((error) => {
@@ -97,6 +100,7 @@ const ModalEdit = ({handleClose, showModal, newUser, unombre, handleChangesMade}
         bsCustomFileInput.init()
     }, [])
 
+    console.log(ufecha)
     return (
         <Modal show={showModal} onHide={handleClose} centered>
             <Modal.Header closeButton>
@@ -121,12 +125,21 @@ const ModalEdit = ({handleClose, showModal, newUser, unombre, handleChangesMade}
                         Fecha de nacimiento:
                         </Form.Label>
                         <Col sm={7}>
-                        <Form.Control type="date" onChange={handleChangeFecha} />
+                        { ufecha ?
+                        <Form.Control type="date" value={!fecha ? ufecha : fecha} onChange={handleChangeFecha} />
+                        : <Form.Control type="date" onChange={handleChangeFecha} />
+                        }
                         </Col>
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.File id="exampleFormControlFile1" onChange={handleChangeFoto} label="Sube una foto" lang="es" data-browse="Buscar" custom />
+                        <Form.File 
+                            id="exampleFormControlFile1" 
+                            onChange={handleChangeFoto} 
+                            label="Sube una foto" 
+                            lang="es" 
+                            data-browse="Buscar" 
+                            custom />
                     </Form.Group>
                 </Form>
             </Modal.Body>

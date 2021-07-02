@@ -46,8 +46,11 @@ const CardEventos = ({nombre,usermail,isDesktop,eventos,handleActEvento}) => {
                             <p style={{marginBottom:'0'}}>{evento.fecha}</p>
                         </div>
                         <div style={{ width:`${styleWidth}`, minWidth:'200px', display:'flex', alignItems:'center', justifyContent:`${styleCenterdiv}`}}>
-                            <img src={GoogleCalendar} onClick={()=> handleOpenGoogle(evento)} alt='Calendario Google' style={{width:'1.2rem', height:'1.2rem'}}></img>
-                            <FontAwesomeIcon onClick={()=> handleOpenEliminar(evento.id)} icon={faTrash} style={{fontSize:'1.2rem', marginLeft:'1rem', color: "#7596b6"}}/>
+                            { usermail.includes('gmail') 
+                            ? <img src={GoogleCalendar} onClick={()=> handleOpenGoogle(evento)} alt='Calendario Google' style={{width:'1.2rem', height:'1.2rem', cursor: 'pointer'}}></img>
+                            : null
+                            }
+                            <FontAwesomeIcon onClick={()=> handleOpenEliminar(evento.id)} icon={faTrash} style={{fontSize:'1.2rem', marginLeft:'1rem', color: "#7596b6", cursor: 'pointer'}}/>
                         </div>
                     </ListGroup.Item>
                 </ListGroup>  

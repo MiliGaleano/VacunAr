@@ -30,6 +30,7 @@ const Edit = () => {
     const {userData} = useContext(UserData)
     const userActive = userData.filter((x)=> x.active === true)
     const nombre = userData.length !== 0 ? userActive[0].nombre : null
+    const fecha = userData.length !== 0 ? userActive[0].fecha : null
 
     const vacunas = JSON.parse(sessionStorage.getItem('listaVacunas'))
     let location = useLocation()
@@ -40,7 +41,7 @@ const Edit = () => {
 
     return (
         <div>
-            {showModal && <ModalEdit handleClose={handleClose} showModal={showModal} newUser={newUser} unombre={nombre} handleChangesMade={handleChangesMade} />}
+            {showModal && <ModalEdit handleClose={handleClose} showModal={showModal} newUser={newUser} unombre={nombre} ufecha={fecha} handleChangesMade={handleChangesMade} />}
             {modalEliminar && <ModalEliminar nombre={nombre} usermail={usermail} handleCloseEliminar={handleCloseEliminar} modalEliminar={modalEliminar} />}
             <Header title='Mis Vacunas'></Header>
             {newUser ? <DatosUser edit={true} usermail={usermail} handleShow={handleShow} changeMade={changeMade} />

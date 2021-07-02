@@ -43,7 +43,7 @@ const DatosUser = ({edit, handleShow, nombre, usermail, changeMade }) => {
         }
             <Card.Body style={{padding:'1.25rem 0 1.25rem 0'}}>
                 <Card.Title style={{display: 'flex', justifyContent:'center', alignItems:'center'}}>
-                    <h2>{nombre ? nombre : 'User'}</h2>
+                    <h2>{nombre ? nombre : 'Usuario'}</h2>
                     {edit && <FontAwesomeIcon icon={faPencilAlt} onClick={handleShow} style={{margin:'0 0 0.2em 1em', cursor:'pointer'}}/>}
                 </Card.Title>
             </Card.Body>

@@ -23,18 +23,12 @@ const GetMapa = () => {
             let coords = {lat: lat, lng: lon}
             let icon = new H.map.Icon(svgMarker)
             let markerHere = new H.map.Marker(coords, {icon: icon})
-            let bubble = new H.ui.InfoBubble(coords, {content: 
-              (`<p>Usted está aquí</p>`)
-              })
-              
+            let bubble = new H.ui.InfoBubble(coords, {content: (`<p>Usted está aquí</p>`)})
               bubble.close()
               ui.addBubble(bubble)
-          //  Add event
-              markerHere.addEventListener('tap', function (evt) {
+              markerHere.addEventListener('tap', function () {
                   bubble.open()
               })
-
-
             hMap.addObject(markerHere)
             hMap.setCenter(coords)
             return lon, lat;

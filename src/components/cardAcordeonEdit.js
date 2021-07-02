@@ -111,7 +111,7 @@ const CardAcordeonEdit = ({vac, per, nombre, usermail, newUser}) => {
                                             Fecha:
                                             </Form.Label>
                                             <Col sm={10}>
-                                            <Form.Control type="date" value={noData ? newDataUser.fecha : userData.fecha} onChange={handleNewFecha} />
+                                            <Form.Control type="date" value={newDataUser.fecha ? newDataUser.fecha : !noData ? userData.fecha : ''} onChange={handleNewFecha} />
                                             </Col>
                                         </Form.Group>
 
